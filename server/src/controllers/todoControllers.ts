@@ -64,14 +64,14 @@ export const getSortedAndFilteredTodos = async (
     if (sortBy === "dueDate") {
       sortOptions = { dueDate: 1 };
     } else if (sortBy === "completionStatus") {
-      sortOptions = { done: 1 };
+      sortOptions = { isDone: 1 };
     }
 
     let filterOptions: Record<string, any> = {};
     if (filterBy === "completed") {
-      filterOptions = { done: true };
+      filterOptions = { isDone: true };
     } else if (filterBy === "incomplete") {
-      filterOptions = { done: false };
+      filterOptions = { isDone: false };
     }
 
     const todos: ITodo[] = await TodoModel.find({

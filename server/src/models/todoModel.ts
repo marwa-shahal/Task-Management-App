@@ -3,9 +3,14 @@ import { model, Schema } from "mongoose";
 
 const todoSchema: Schema = new Schema(
   {
-    task: {
+    title: {
       type: String,
-      required: [true, "Task is required"],
+      required: [true, "Title is required"],
+    },
+
+    description: {
+      type: String,
+      required: [true, "Description is required"],
     },
 
     userId: {
@@ -27,14 +32,13 @@ const todoSchema: Schema = new Schema(
       },
     },
 
-    done: {
+    isDone: {
       type: Boolean,
       required: [true, "Done status is required"],
     },
   },
   { collection: "Todos", timestamps: true }
 );
-
 
 const TodoModel = model<ITodo>("Todo", todoSchema);
 export default TodoModel;
